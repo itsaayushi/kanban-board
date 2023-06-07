@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Chip from "../Chip/Chip";
 
-import { Clock, CheckSquare, MoreHorizontal } from "react-feather";
+import { Clock, CheckSquare, MoreHorizontal, Edit2 } from "react-feather";
 
 import "./Card.css";
 import Dropdown from "../Dropdown/Dropdown";
@@ -26,7 +26,6 @@ export default function Card(props) {
         draggable
         onDragEnd={() => props.handleDragEnd(props.card?.id, props.boardId)}
         onDragEnter={() => props.handleDragEnter(props.card?.id, props.boardId)}
-        onClick={() => setShowModal(true)}
       >
         <div className="card_top">
           <div className="card_top_labels">
@@ -34,6 +33,7 @@ export default function Card(props) {
               <Chip key={index} text={item.text} color={item.color} />
             ))}
           </div>
+          <Edit2 onClick={() => setShowModal(true)} className="card_edit" />
           <div className="card_top_more" onClick={() => setShowDropdown(true)}>
             <MoreHorizontal />
             {showDropdown && (
